@@ -37,8 +37,16 @@ appServices.service('quiz', ['$window',
       createMirrors: function (wetCode, dryCode) {
         createMirrors(wetCode, dryCode);
       },
-      correctAnswer: function () {
+      checkIfAnswered: function (questionId) {
+        if (questionsAnswered.indexOf(questionId) > -1) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      correctAnswer: function (questionId) {
         score += 3;
+        questionsAnswered.push(questionId);
       },
       incorrectAnswer: function () {
         if (score - 1 < 0) {

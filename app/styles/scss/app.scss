@@ -87,7 +87,6 @@ $subtitle-height: 40px;
   color: $dry-color;
 }
 
-
 .switchbox {
   @extend .bb;
   margin: 20px auto;
@@ -112,7 +111,7 @@ $subtitle-height: 40px;
     color: #fff;
   }
   &:active {
-    @include Transform(scale(0.8));
+    @include Transform(scale(0.9));
   }
 }
 
@@ -133,13 +132,15 @@ $subtitle-height: 40px;
   text-align: center;
 }
 
-.quizbox {
+.quizbox,
+.glossary{
   @extend .bb;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   text-align: center;
 }
+
 .quiz-link {
-  margin: 0 auto;
+  margin: 40px auto 0;
   background-color: #4fabb7;
   color: #f2f2f2;
 }
@@ -198,6 +199,7 @@ $subtitle-height: 40px;
   right: 0;
   background-color: #272822;
   overflow: auto;
+  overflow-x: hidden;
   z-index: 1000;
 
   ul {
@@ -208,11 +210,16 @@ $subtitle-height: 40px;
     @extend .bb;
     margin: 10px auto;
     padding: 10px;
-    width: calc(100% - 30px);
+    width: calc(50%);
     background-color: #fff;
+    @include Transition(0.10s);
     cursor: pointer;
     &:hover {
-      background-color: #ced3d3;
+      background-color: #e6e6e6;
+      @include Transform(scale(1.1));
+    }
+    &:active {
+      @include Transform(scale(0.95));
     }
   }
 }
@@ -236,6 +243,10 @@ $subtitle-height: 40px;
   right: 0;
   left: 0;
 
+  font: {
+    size: 1.5em;
+  }
+
   text-align: center;
   color: #d32b2b
 }
@@ -251,7 +262,23 @@ $subtitle-height: 40px;
 }
 
 .score {
+  padding: 10px;
   position: absolute;
   top: 0;
   right: 0;
+  background-color: #ddd;
+}
+
+
+/* Media Breakpoints */
+
+
+@media screen and (max-width: 720px) {
+  .questionaire li {
+    font-size: 0.8em;
+  }
+
+  .notify-incorrect {
+    font-size: 1em;
+  }
 }
