@@ -79,7 +79,7 @@ appControllers.controller('QuizCtrl', ['$scope', '$http', '$routeParams', '$time
 
       if ($scope.question + 1 > data.length) {
         $scope.nextQuestion = '#/end';
-        $scope.endReached = 'That\'s it!';
+        $scope.endReached = 'That\'s it! Click here to continue.';
       }
     });
 

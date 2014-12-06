@@ -141,7 +141,7 @@ $page-title-height:92px;
 .dry-container {
   @extend .bb;
   width: 50%;
-  height: calc(100% - 300px);
+  height: 460px;
   float: left;
   header {
     @extend .bb;
@@ -171,7 +171,7 @@ $page-title-height:92px;
   @extend .bb;
   padding: 40px 0;
   position: absolute;
-  height: calc(100% - 340px);
+  height: (460px - 40px);
   width: 50%;
   top: 40px;
   right: 0;
@@ -205,7 +205,7 @@ $page-title-height:92px;
   padding: 15px;
   position: relative;
   width: 100%;
-  height: 300px;
+  height: calc(100% - 460px);
   background-color: #fff;
   overflow: auto;
   clear: both;
