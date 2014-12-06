@@ -1,37 +1,30 @@
 // Sass
-
 @import 'base';
-
 .bb {
   @include Box-Sizing(border-box);
 }
-
-html, body {
+html,
+body {
   @extend .bb;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
-
 body {
   font-family: 'Open Sans';
   color: #333;
 }
-
 .viewport {
   @extend .bb;
   width: 100%;
   height: 100%;
   overflow: auto;
 }
-
-
 /* Splash Pages */
 
-$wet-color: #455781;
-$dry-color: #d3c594;
-
-.splash {
+$wet-color:#455781;
+ $dry-color:#d3c594;
+ .splash {
   @extend .bb;
   margin: 0;
   padding: 0;
@@ -45,11 +38,9 @@ $dry-color: #d3c594;
 .splash--wet {
   background-color: $wet-color;
 }
-
-$page-title-height: 92px;
-$subtitle-height: 40px;
-
-.page-title {
+$page-title-height:92px;
+ $subtitle-height:40px;
+ .page-title {
   @extend .bb;
   @include AbsCenter();
   padding-left: 30px;
@@ -59,9 +50,9 @@ $subtitle-height: 40px;
     weight: 300;
     size: 92px;
   }
-  letter-spacing: 30px;
-  line-height: $page-title-height;
-  text-align: center;
+  letter-spacing:30px;
+  line-height:$page-title-height;
+  text-align:center;
 }
 .page-subtitle {
   @extend .bb;
@@ -74,10 +65,9 @@ $subtitle-height: 40px;
     weight: 300;
     size: 24px;
   }
-  line-height: $subtitle-height;
-  text-align: center;
+  line-height:$subtitle-height;
+  text-align:center;
 }
-
 .page-title--dry,
 .page-subtitle--dry {
   color: $wet-color;
@@ -86,7 +76,6 @@ $subtitle-height: 40px;
 .page-subtitle--wet {
   color: $dry-color;
 }
-
 .switchbox {
   @extend .bb;
   margin: 20px auto;
@@ -94,7 +83,6 @@ $subtitle-height: 40px;
   width: 320px;
   height: 40px;
 }
-
 .dry-button,
 .wet-button,
 .quiz-link {
@@ -114,7 +102,6 @@ $subtitle-height: 40px;
     @include Transform(scale(0.9));
   }
 }
-
 .dry-button {
   background-color: $dry-color;
   float: left;
@@ -125,26 +112,22 @@ $subtitle-height: 40px;
   float: right;
   color: $dry-color;
 }
-
 .intro {
   @extend .bb;
   padding: 15px;
   text-align: center;
 }
-
 .quizbox,
-.glossary{
+.glossary {
   @extend .bb;
   padding-bottom: 50px;
   text-align: center;
 }
-
 .quiz-link {
   margin: 40px auto 0;
   background-color: #4fabb7;
   color: #f2f2f2;
 }
-
 /* Quiz */
 
 .container {
@@ -154,7 +137,6 @@ $subtitle-height: 40px;
   height: 100%;
   background-color: #272822;
 }
-
 .wet-container,
 .dry-container {
   @extend .bb;
@@ -168,27 +150,23 @@ $subtitle-height: 40px;
       weight: 300;
       size: 1.5em;
     }
-    line-height: 40px;
-    text-align: center;
-    letter-spacing: 10px;
+    line-height:40px;
+    text-align:center;
+    letter-spacing:10px;
   }
 }
-
 .wet-container header {
   background-color: $wet-color;
   color: $dry-color;
 }
-
 .dry-container header {
   background-color: $dry-color;
   color: $wet-color;
 }
-
 .CodeMirror {
   width: 100%;
   height: calc(100% - 40px);
 }
-
 .questionaire {
   @extend .bb;
   padding: 40px 0;
@@ -201,7 +179,6 @@ $subtitle-height: 40px;
   overflow: auto;
   overflow-x: hidden;
   z-index: 1000;
-
   ul {
     padding: 0;
     list-style: none;
@@ -210,7 +187,7 @@ $subtitle-height: 40px;
     @extend .bb;
     margin: 10px auto;
     padding: 10px;
-    width: calc(50%);
+    width: 65%;
     background-color: #fff;
     @include Transition(0.10s);
     cursor: pointer;
@@ -223,7 +200,6 @@ $subtitle-height: 40px;
     }
   }
 }
-
 .example {
   @extend .bb;
   padding: 15px;
@@ -233,6 +209,20 @@ $subtitle-height: 40px;
   background-color: #fff;
   overflow: auto;
   clear: both;
+
+  a {
+    color: #333;
+    &:hover {
+      color: $dry-color;
+    }
+  }
+}
+.notes {
+  font: {
+    size: 0.8em;
+    style: italic;
+  }
+
 }
 .notify-incorrect {
   margin: auto;
@@ -242,25 +232,22 @@ $subtitle-height: 40px;
   top: 3px;
   right: 0;
   left: 0;
-
   font: {
     size: 1.5em;
   }
-
-  text-align: center;
-  color: #d32b2b
+  text-align:center;
+  color:#d32b2b;
+  @include Transition(0.25s);
 }
 .wrong-answer {
-  display: block;
+  opacity: 1;
 }
 .wrong-answer-disabled {
-  display: none;
+  opacity: 0;
 }
-
 .correct-answer {
   color: #34ac39;
 }
-
 .score {
   padding: 10px;
   position: absolute;
@@ -268,16 +255,12 @@ $subtitle-height: 40px;
   right: 0;
   background-color: #ddd;
 }
-
-
 /* Media Breakpoints */
-
 
 @media screen and (max-width: 720px) {
   .questionaire li {
     font-size: 0.8em;
   }
-
   .notify-incorrect {
     font-size: 1em;
   }

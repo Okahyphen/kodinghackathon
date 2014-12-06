@@ -4,8 +4,8 @@
     "dryCode": "var apples = {\n\t'fuji': 4,\n\t'bramley': 10,\n\t'gala': 7,\n\t'lobo': 12,\n\t'aroma': 17\n};\n",
     "selection": ["Create a helper function", "Use an object literal", "Use a constructor", "Create an array"],
     "answer": 1,
-    "questionText": "Above we have a set of global variables that all represet very similar ideas. How can we DRY up our code to reduce the number of global variables we have in our program?",
-    "answerText": "Using an object literal, we can make a much more concise data construct, that represents a grouping of similar variables. In other languages this might be known as a hashtable, or dictionary."
+    "questionText": "Above we have a set of global variables that all represet very similar ideas. How can we DRY up our code, and reduce the number of global variables we have in our program?",
+    "answerText": "Using an object literal we can make a much more concise data construct, one that represents a grouping of similar variables. In other languages this might be known as a hashtable, or dictionary."
   },
   {
     "wetCode": "var bits = [1, 4, 8, 12, 16, 18,\n\t\t\t\t\t\t24, 26, 31, 32, 36, 48,\n\t\t\t\t\t\t60, 64, 128, 256, 512];\n\nbits[0] += 1;\nbits[1] += 1;\nbits[2] += 1;\nbits[3] += 1;\nbits[4] += 1;\nbits[5] += 1;\nbits[6] += 1;\nbits[7] += 1;\nbits[8] += 1;\nbits[9] += 1;\n",
@@ -16,7 +16,7 @@
     "answerText": "In this case a for loop is perfect. Instead of writing out every line individually, we can loop through the array and operate on what we want. This may seem super obvious, but it's important to remember the tools we have at our disposal."
   },
   {
-    "wetCode": "var John = {\n\tname: 'John',\n\tage: 42,\n\tjob: 'Dentist',\n\n\tspeak: function () {\n\t\twindow.alert('My name is ' + this.name);\n\t}\n};\n\nvar Jane = {\n\tname: 'Jane',\n\tage: 34,\n\tjob: 'Programmer',\n\n\tspeak: function () {\n\t\twindow.alert('My name is ' + this.name);\n\t}\n};\n\nvar Joe = {\n\tname: 'Joe',\n\tage: 27,\n\tjob: 'Farmer',\n\n\tspeak: function () {\n\t\twindow.alert('My name is ' + this.name);\nt\t}\n};\n\nvar Jill = {\n\tname: 'Jill',\n\tage: 23,\n\tjob: 'Teacher',\n\n\tspeak: function () {\n\t\twindow.alert('My name is ' + this.name);\n\t}\n};\n",
+    "wetCode": "var John = {\n\tname: 'John',\n\tage: 42,\n\tjob: 'Dentist',\n\n\tspeak: function () {\n\t\twindow.alert('My name is ' + this.name);\n\t}\n};\n\nvar Jane = {\n\tname: 'Jane',\n\tage: 34,\n\tjob: 'Programmer',\n\n\tspeak: function () {\n\t\twindow.alert('My name is ' + this.name);\n\t}\n};\n\nvar Joe = {\n\tname: 'Joe',\n\tage: 27,\n\tjob: 'Farmer',\n\n\tspeak: function () {\n\t\twindow.alert('My name is ' + this.name);\n\t}\n};\n\nvar Jill = {\n\tname: 'Jill',\n\tage: 23,\n\tjob: 'Teacher',\n\n\tspeak: function () {\n\t\twindow.alert('My name is ' + this.name);\n\t}\n};\n",
     "dryCode": "function Person(name, age, job) {\n\tthis.name = name;\n\tthis.age = age;\n\tthis.job = job;\n\n\tthis.speak = function () {\n\t\twindow.alert('My name is ' + this.name);\n\t};\n}\n\nvar John = new Person('John', 42, 'Dentist');\nvar Jane = new Person('Jane', 34, 'Programmer');\nvar Joe = new Person('Joe', 27, 'Farmer');\nvar Jill = new Person('Jill', 23, 'Teacher');\n",
     "selection": ["Create a constructor", "Use a helper function", "Create an array", "Define a new variable"],
     "answer": 0,
@@ -24,9 +24,21 @@
     "answerText": "Using a constructor we can severely reduce the amount of code we're writing in this instance."
   },
   {
-
+    "wetCode": "var key = e.which || e.keycode;\n\nif (key === 37 || key === 38) {\n\tdoSomething();\n} else if (key === 39 || key === 40) {\n\tdoSomethingElse();\n} else {\n\tdoSomethingDifferent();\n}\n",
+    "dryCode": "switch(e.which || e.keycode) {\n\tcase 37:\n\tcase 38:\n\t\tdoSomething();\n\t\tbreak;\n\tcase 39:\n\tcase 40:\n\t\tdoSomethingElse();\n\t\tbreak;\n\tdefault:\n\t\tdoSomethingDifferent();\n\t\tbreak;\n}\n",
+    "selection": ["Create an object literal", "Use an array", "Use a switch statement", "Create a helper function"],
+    "answer": 2,
+    "questionText": "Here we are getting a keycode, presumably from a key event handler, and figuring out which of our functions to call. When the key is LEFT or UP we call doSomething(), when the key is RIGHT or DOWN we call doSomethingElse(), and when it's none of those we call doSomethingDifferent(). How could we DRY this code up?",
+    "answerText": "In this small case our DRY code is longer, but much more maintainable. Remember that DRY doesn't necessarily imply shorter code, as readability and maintainability are high on the priority list. Another important thing to note here are the break statements inside the switch - if your forget those your switch will fall through until it reaches a break statement, executing all the code along the way!",
+    "notes": "Note: So this is somewhat of a trick question. On a larger scale it would actually be more performant, and more readable, to use an object literal like a hashtable and look up the key-value directly, but on such a small scale it's more feasible to use the switch statement."
   },
   {
-
+    "wetCode": "var temps = {\n\t'morning': 56,\n\t'noon': 68,\n\t'evening': 52\n};\n\nfor (var key in temps) {\n\ttemps[key] = Math.round((temps[key] - 32) / 1.800);\n}\n\nvar temps2 = {\n\t'morning': 46,\n\t'noon': 55,\n\t'evening': 48\n};\n\nfor (var key in temps2) {\n\ttemps2[key] = Math.round((temps2[key] - 32) / 1.800);\n}\n",
+    "dryCode": "var ferinheightToCelsius = function (temp) {\n\treturn Math.round((temp - 32) / 1.800);\n}\n\nvar convertObjToCelsius = function (obj) {\n\tfor (var key in obj) {\n\t\tferinheightToCelsius(obj[key]);\n\t}\n}\n\nvar temps = {\n\t'morning': 56,\n\t'noon': 68,\n\t'evening': 52\n};\n\nvar temps2 = {\n\t'morning': 46,\n\t'noon': 55,\n\t'evening': 48\n};\n\nconvertObjToCelsius(temps);\nconvertObjToCelsius(temps2);\n",
+    "selection": ["Create helper functions", "Use a constructor", "Create a new array", "Define a new variable"],
+    "answer": 0,
+    "questionText": "In this example of WET code we have been given two object literals with temperatures inside. We want to convert all the temperatures from Ferinheight to Celsius, inside both. How could we do this in a more DRY manor?",
+    "answerText": "Now we have two highly reusable helper functions that we can continue to use throughout our program. If we need to make changes to either of these calculations we know exactly where to find them, and we only have to change them once.",
+    "notes": "Note: This is a very basic example to give an idea of how functions can help other functions. There exist problems with the exact code shown."
   }
 ]

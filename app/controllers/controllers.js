@@ -35,7 +35,7 @@ appControllers.controller('WetCtrl', ['$scope', '$timeout', 'quiz',
       subtitle.innerHTML = $scope.subtitles[index];
       $scope.timer = $timeout(function () {
         $scope.setSubtitle(index + 1);
-      }, 2000);
+      }, 1200);
     };
 
     $scope.setSubtitle(0);
@@ -56,7 +56,6 @@ appControllers.controller('QuizCtrl', ['$scope', '$http', '$routeParams', '$time
       }
     }
 
-
     $scope.nextQuestion = '#/quiz/' + String($scope.question + 1);
 
     // Reveal answer if already answered
@@ -76,8 +75,9 @@ appControllers.controller('QuizCtrl', ['$scope', '$http', '$routeParams', '$time
       $scope.questionText = data[$scope.quizId].questionText;
       $scope.answer = data[$scope.quizId].answer;
       $scope.answerText = data[$scope.quizId].answerText;
+      $scope.notes = data[$scope.quizId].notes;
 
-      if ($scope.question + 1 >= data.length) {
+      if ($scope.question + 1 > data.length) {
         $scope.nextQuestion = '#/end';
         $scope.endReached = 'That\'s it!';
       }
