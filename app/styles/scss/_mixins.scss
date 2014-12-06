@@ -1,0 +1,45 @@
+// Mixins Partial - Pages.js
+
+@mixin Box-Sizing($properties) {
+  -webkit-box-sizing: $properties;
+  -moz-box-sizing: $properties;
+  box-sizing: $properties;
+}
+
+@mixin AbsCenter() {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin Transition($properties) {
+  -webkit-transition: $properties;
+  -moz-transition: $properties;
+  -ms-transition: $properties;
+  -o-transition: $properties;
+  transition: $properties;
+}
+
+@mixin Transform($type) {
+  -webkit-transform: $type;
+  -moz-transform: $type;
+  -ms-transform: $type;
+  -o-transform: $type;
+  transform: $type;
+}
+
+@mixin Animation($properties) {
+  -webkit-animation: $properties;
+  -moz-animation: $properties;
+  -o-animation: $properties;
+  animation: $properties;
+}
+
+@mixin Box-Shadow($properties) {
+  -webkit-box-shadow: $properties;
+  -moz-box-shadow: $properties;
+  box-shadow: $properties;
+}

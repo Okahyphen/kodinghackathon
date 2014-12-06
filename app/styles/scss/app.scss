@@ -1,1 +1,180 @@
 // Sass
+
+@import 'base';
+
+.bb {
+  @include Box-Sizing(border-box);
+}
+
+html, body {
+  @extend .bb;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Open Sans';
+  color: #333;
+}
+
+.viewport {
+  @extend .bb;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+
+/* Splash Pages */
+
+$wet-color: #455781;
+$dry-color: #d3c594;
+
+.splash {
+  @extend .bb;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.splash--dry {
+  background-color: $dry-color;
+}
+.splash--wet {
+  background-color: $wet-color;
+}
+
+$page-title-height: 92px;
+$subtitle-height: 40px;
+
+.page-title {
+  @extend .bb;
+  @include AbsCenter();
+  padding-left: 30px;
+  width: 320px;
+  height: $page-title-height;
+  font: {
+    weight: 300;
+    size: 92px;
+  }
+  letter-spacing: 30px;
+  line-height: $page-title-height;
+  text-align: center;
+}
+.page-subtitle {
+  @extend .bb;
+  @include AbsCenter();
+  width: 320px;
+  height: $subtitle-height;
+  top: $page-title-height + $subtitle-height;
+  background-color: rgba(255, 255, 255, 0.25);
+  font: {
+    weight: 300;
+    size: 24px;
+  }
+  line-height: $subtitle-height;
+  text-align: center;
+}
+
+.page-title--dry,
+.page-subtitle--dry {
+  color: $wet-color;
+}
+.page-title--wet,
+.page-subtitle--wet {
+  color: $dry-color;
+}
+
+
+.switchbox {
+  @extend .bb;
+  margin: 20px auto;
+  position: relative;
+  width: 320px;
+  height: 40px;
+}
+
+.dry-button,
+.wet-button,
+.quiz-link {
+  @extend .bb;
+  display: block;
+  width: 140px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  @include Transition(0.25s);
+  &:hover {
+    @include Transform(scale(1.2));
+    color: #fff;
+  }
+  &:active {
+    @include Transform(scale(0.8));
+  }
+}
+
+.dry-button {
+  background-color: $dry-color;
+  float: left;
+  color: $wet-color;
+}
+.wet-button {
+  background-color: $wet-color;
+  float: right;
+  color: $dry-color;
+}
+
+.intro {
+  @extend .bb;
+  padding: 15px;
+  text-align: center;
+}
+
+.quizbox {
+  @extend .bb;
+  padding-bottom: 100px;
+  text-align: center;
+}
+.quiz-link {
+  margin: 0 auto;
+  background-color: #6dd853;
+  color: #222;
+}
+
+/* Quiz */
+
+.container {
+  @extend .bb;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  background-color: #ddd;
+}
+
+.wet-container,
+.dry-container {
+  @extend .bb;
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+
+.CodeMirror {
+  width: 100%;
+  height: 100%;
+}
+
+.questionaire {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  right: 0;
+  background-color: $dry-color;
+  overflow: auto;
+  z-index: 1000;
+}
