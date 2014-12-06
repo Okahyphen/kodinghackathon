@@ -1,7 +1,26 @@
 <div class="container">
-  <div class="wet-container"></div>
-  <div class="dry-container"></div>
-  <div class="questionaire">
-
+  <div class="wet-container">
+    <header>WET</header>
+  </div>
+  <div class="dry-container">
+    <header>DRY</header>
+  </div>
+  <div class="questionaire" ng-hide="revealAnswer">
+    <ul>
+      <li ng-repeat="answers in answerList" ng-click="chooseAnswer($index)">{{answers}}</li>
+    </ul>
+  </div>
+  <div class="example">
+    <div ng-class="{true: 'wrong-answer', false: 'wrong-answer-disabled'}[wrongAnswer]" class="notify-incorrect">
+      <span>Incorrect!</span>
+    </div>
+    <div class="score">Score: {{score}}</div>
+    <h2>Question {{question}}</h2>
+    <p>{{questionText}}</p>
+    <div ng-show="revealAnswer">
+      <h2 class="correct-answer">Correct!</h2>
+      <p>{{answerText}}</p>
+      <a href="{{nextQuestion}}">{{endReached || 'Next Question'}}</a>
+    </div>
   </div>
 </div>

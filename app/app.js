@@ -20,6 +20,10 @@ DRYvsWET.config(['$routeProvider',
         templateUrl: 'app/views/quiz.html',
         controller: 'QuizCtrl'
       })
+      .when('/end', {
+        templateUrl: 'app/views/end.html',
+        controller: 'EndCtrl'
+      })
       .otherwise({
         redirectTo: '/dry'
       });

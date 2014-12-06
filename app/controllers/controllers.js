@@ -1,41 +1,76 @@
 /* Controllers */
 
-/*global angular, CodeMirror */
+/*global angular, CodeMirror, $ */
 
 var appControllers = angular.module('appControllers', ['appServices']);
 
-appControllers.controller('DryCtrl', ['$scope',
-  function ($scope) {
+appControllers.controller('DryCtrl', ['$scope', 'quiz',
+  function ($scope, quiz) {
     "use strict";
 
+    quiz.resetScore();
   }]);
 
-appControllers.controller('WetCtrl', ['$scope',
-  function ($scope) {
+appControllers.controller('WetCtrl', ['$scope', 'quiz',
+  function ($scope, quiz) {
     "use strict";
 
+    quiz.resetScore();
   }]);
 
-appControllers.controller('QuizCtrl', ['$scope', '$routeParams',
-  function ($scope, $routeParams) {
+appControllers.controller('QuizCtrl', ['$scope', '$http', '$routeParams', '$timeout', 'quiz', '$window',
+  function ($scope, $http, $routeParams, $timeout, quiz, $window) {
     "use strict";
 
-    var quizId, wetContainer, wetCodeMirror, dryContainer, dryCodeMirror;
+    $scope.question = Number($routeParams.question);
+    $scope.quizId = $scope.question - 1;
 
-    $scope.quizId = $routeParams.question;
+    $scope.nextQuestion = '#/quiz/' + String($scope.question + 1);
 
-    wetContainer = document.querySelector('.wet-container');
-    wetCodeMirror = new CodeMirror(wetContainer, {
-      value: 'Wet Code',
-      lineNumbers: true,
-      mode: 'javascript'
+    $scope.revealAnswer = false;
+    $scope.wrongAnswer = false;
+    $scope.endReached = false;
+
+    $http.get('app/data/quiz.json').success(function (data) {
+      quiz.createMirrors(data[$scope.quizId].wetCode, data[$scope.quizId].dryCode);
+
+      $scope.answerList = data[$scope.quizId].selection;
+      $scope.questionText = data[$scope.quizId].questionText;
+      $scope.answer = data[$scope.quizId].answer;
+      $scope.answerText = data[$scope.quizId].answerText;
+
+      if ($scope.question + 1 >= data.length) {
+        $scope.nextQuestion = '#/end';
+        $scope.endReached = 'That\'s it!';
+      }
     });
 
-    dryContainer = document.querySelector('.dry-container');
-    dryCodeMirror = new CodeMirror(dryContainer, {
-      value: 'Dry Code',
-      lineNumbers: true,
-      mode: 'javascript'
-    });
+    $scope.setScore = function () {
+      $scope.score = quiz.getScore();
+    };
+
+    $scope.chooseAnswer = function (index) {
+      if (index === $scope.question) {
+        quiz.correctAnswer();
+        $scope.revealAnswer = true;
+        $scope.wrongAnswer = false;
+        $scope.setScore();
+      } else {
+        quiz.incorrectAnswer();
+        $scope.wrongAnswer = true;
+        $scope.setScore();
+        $timeout.cancel($scope.timer);
+        $scope.timer = $timeout(function () {
+          $scope.wrongAnswer = false;
+        }, 1000);
+      }
+    };
+
+    $scope.setScore();
+  }]);
+
+appControllers.controller('EndCtrl', ['$scope', 'quiz',
+  function ($scope, quiz) {
+    "use strict";
 
   }]);

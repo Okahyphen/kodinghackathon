@@ -140,8 +140,8 @@ $subtitle-height: 40px;
 }
 .quiz-link {
   margin: 0 auto;
-  background-color: #6dd853;
-  color: #222;
+  background-color: #4fabb7;
+  color: #f2f2f2;
 }
 
 /* Quiz */
@@ -151,30 +151,107 @@ $subtitle-height: 40px;
   position: relative;
   width: 100%;
   height: 100%;
-
-  background-color: #ddd;
+  background-color: #272822;
 }
 
 .wet-container,
 .dry-container {
   @extend .bb;
   width: 50%;
-  height: 100%;
+  height: calc(100% - 300px);
   float: left;
+  header {
+    @extend .bb;
+    width: 100%;
+    font: {
+      weight: 300;
+      size: 1.5em;
+    }
+    line-height: 40px;
+    text-align: center;
+    letter-spacing: 10px;
+  }
+}
+
+.wet-container header {
+  background-color: $wet-color;
+  color: $dry-color;
+}
+
+.dry-container header {
+  background-color: $dry-color;
+  color: $wet-color;
 }
 
 .CodeMirror {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 40px);
 }
 
 .questionaire {
+  @extend .bb;
+  padding: 40px 0;
   position: absolute;
-  height: 100%;
+  height: calc(100% - 340px);
   width: 50%;
-  top: 0;
+  top: 40px;
   right: 0;
-  background-color: $dry-color;
+  background-color: #272822;
   overflow: auto;
   z-index: 1000;
+
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    @extend .bb;
+    margin: 10px auto;
+    padding: 10px;
+    width: calc(100% - 30px);
+    background-color: #fff;
+    cursor: pointer;
+    &:hover {
+      background-color: #ced3d3;
+    }
+  }
+}
+
+.example {
+  @extend .bb;
+  padding: 15px;
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-color: #fff;
+  overflow: auto;
+  clear: both;
+}
+.notify-incorrect {
+  margin: auto;
+  position: absolute;
+  width: 320px;
+  height: 40px;
+  top: 3px;
+  right: 0;
+  left: 0;
+
+  text-align: center;
+  color: #d32b2b
+}
+.wrong-answer {
+  display: block;
+}
+.wrong-answer-disabled {
+  display: none;
+}
+
+.correct-answer {
+  color: #34ac39;
+}
+
+.score {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

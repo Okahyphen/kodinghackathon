@@ -1,9 +1,19 @@
 [
   {
-
+    "wetCode": "var apples_fuji = 4;\nvar apples_bramley = 10;\nvar apples_gala = 7;\nvar apples_lobo = 12;\nvar apples_aroma = 17;",
+    "dryCode": "var apples = {\n\t'fuji': 4,\n\t'bramley': 10,\n\t'gala': 7,\n\t'lobo': 12,\n\t'aroma': 17\n};",
+    "selection": ["Create a helper function", "Use an object literal", "Use a constructor", "Create an array"],
+    "answer": 1,
+    "questionText": "Above we have a set of global variables that all represet very similar ideas. How can we DRY up our code to reduce the number of global variables we have in our program?",
+    "answerText": "Using an object literal, we can make a much more concise data construct, that represents a grouping of similar variables. In other languages this might be known as a hashtable, or dictionary."
   },
   {
-
+    "wetCode": "var bits = [1, 4, 8, 12, 16, 18,\n\t\t\t\t\t\t24, 26, 31, 32, 36, 48,\n\t\t\t\t\t\t60, 64, 128, 256, 512];\n\nbits[0] += 1;\nbits[1] += 1;\nbits[2] += 1;\nbits[3] += 1;\nbits[4] += 1;\nbits[5] += 1;\nbits[6] += 1;\nbits[7] += 1;\nbits[8] += 1;\nbits[9] += 1;",
+    "dryCode": "var bits = [1, 4, 8, 12, 16, 18,\n\t\t\t\t\t\t24, 26, 31, 32, 36, 48,\n\t\t\t\t\t\t60, 64, 128, 256, 512];\n\n for (var n = 0; n < 10; n++) {\n\tbits[n] += 1;\n}",
+    "selection": ["Define an object literal", "Use AJAX", "Use a for loop", "Create a helper function"],
+    "answer": 2,
+    "questionText": "In the above code we have an array of bits. We want to add 1 more bit the first 10 bits in our array. We've done so with some very WET code - how could we fix this up?",
+    "answerText": "In this case a for loop is perfect. Instead of writing out every line individually, we can loop through the array and operate on what we want. This may seem super obvious, but it's important to remember the tools we have at our disposal."
   },
   {
 
