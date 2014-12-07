@@ -58,8 +58,9 @@ appServices.service('quiz', ['$window',
       getScore: function () {
         return score;
       },
-      resetScore: function () {
+      reset: function () {
         score = 0;
+        questionsAnswered = [];
       }
     };
   }]);

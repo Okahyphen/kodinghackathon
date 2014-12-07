@@ -4,12 +4,13 @@
   </div>
   <div class="dry-container">
     <header>DRY</header>
+    <div class="questionaire" ng-hide="revealAnswer">
+      <ul>
+        <li ng-repeat="answers in answerList" ng-click="chooseAnswer($index)">{{answers}}</li>
+      </ul>
+    </div>
   </div>
-  <div class="questionaire" ng-hide="revealAnswer">
-    <ul>
-      <li ng-repeat="answers in answerList" ng-click="chooseAnswer($index)">{{answers}}</li>
-    </ul>
-  </div>
+
   <div class="example">
     <div ng-class="{true: 'wrong-answer', false: 'wrong-answer-disabled'}[wrongAnswer]" class="notify-incorrect">
       <span>Incorrect!</span>

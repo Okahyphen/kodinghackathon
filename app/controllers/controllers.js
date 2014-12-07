@@ -8,7 +8,7 @@ appControllers.controller('DryCtrl', ['$scope', 'quiz',
   function ($scope, quiz) {
     "use strict";
 
-    quiz.resetScore();
+    quiz.reset();
   }]);
 
 appControllers.controller('WetCtrl', ['$scope', '$timeout', 'quiz',
@@ -17,7 +17,7 @@ appControllers.controller('WetCtrl', ['$scope', '$timeout', 'quiz',
 
     var subtitle = document.querySelector('.page-subtitle--wet');
 
-    quiz.resetScore();
+    quiz.reset();
 
     $scope.subtitles = [
       'We Enjoy Typing',
@@ -35,7 +35,7 @@ appControllers.controller('WetCtrl', ['$scope', '$timeout', 'quiz',
       subtitle.innerHTML = $scope.subtitles[index];
       $scope.timer = $timeout(function () {
         $scope.setSubtitle(index + 1);
-      }, 1200);
+      }, 1500);
     };
 
     $scope.setSubtitle(0);
@@ -112,5 +112,21 @@ appControllers.controller('EndCtrl', ['$scope', 'quiz',
     "use strict";
 
     $scope.score = quiz.getScore();
+
+    if ($scope.score === 15) {
+      $scope.grats = 'Perfect!';
+    } else if ($scope.score > 10) {
+      $scope.grats = 'Well Done!';
+    } else if ($scope.score > 5) {
+      $scope.grats = 'Keep Trying!';
+    } else {
+      $scope.grats = 'Better Luck Next Time!';
+    }
+
+    if ($scope.score > 10) {
+      $scope.again = '#/dry';
+    } else {
+      $scope.again = '#/wet';
+    }
 
   }]);
