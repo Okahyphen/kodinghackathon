@@ -11,9 +11,11 @@ I wanted to address the idea of teaching someone with basic knowledge of program
 
 ### Screenshots
 
+Koding
+![Koding](http://i.imgur.com/qvONHSW.png "Koding")
+Local Dev
 ![Local Dev](http://i.imgur.com/THo4R7v.png "Local Dev")
 
-![Koding]( "Koding")
 
 ### APIs
 

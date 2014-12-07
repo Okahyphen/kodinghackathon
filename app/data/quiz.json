@@ -6,7 +6,7 @@
     "selection": ["Create a helper function", "Use an object literal", "Use a constructor", "Create an array"],
     "answer": 1,
     "questionText": "Above we have a set of global variables that all represet very similar ideas. How can we DRY up our code, and reduce the number of global variables we have in our program?",
-    "answerText": "Using an object literal we can make a much more concise data construct, one that represents a grouping of similar variables. In other languages this might be known as a hashtable, or dictionary."
+    "answerText": "Using an object literal we can make a much more concise data construct, one that represents a grouping of similar variables. This is comparable to a hashtable, or dictionary, in other languages."
   },
   {
     "questionId": 2,
