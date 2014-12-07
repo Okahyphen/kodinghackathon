@@ -68,7 +68,10 @@ appControllers.controller('QuizCtrl', ['$scope', '$http', '$routeParams', '$time
     $scope.wrongAnswer = false;
     $scope.endReached = false;
 
-    $http.get('app/data/quiz.json').success(function (data) {
+
+    $scope.questions = quiz.getQuestions();
+
+    $scope.questions.success(function (data) {
       quiz.createMirrors(data[$scope.quizId].wetCode, data[$scope.quizId].dryCode);
 
       $scope.answerList = data[$scope.quizId].selection;
@@ -82,6 +85,7 @@ appControllers.controller('QuizCtrl', ['$scope', '$http', '$routeParams', '$time
         $scope.endReached = 'That\'s it! Click here to continue.';
       }
     });
+
 
     $scope.setScore = function () {
       $scope.score = quiz.getScore();

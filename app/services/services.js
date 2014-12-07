@@ -3,13 +3,17 @@
 
 var appServices = angular.module('appServices', []);
 
-appServices.service('quiz', ['$window',
-  function ($window) {
+appServices.service('quiz', ['$window', '$http',
+  function ($window, $http) {
     "use strict";
     var score, questionsAnswered;
 
     score = 0;
     questionsAnswered = [];
+
+    function getQuestions() {
+      return $http.get('app/data/quiz.json');
+    }
 
     function createMirrors(wetCode, dryCode) {
       var wetContainer, wetCodeMirror, dryContainer, dryCodeMirror;
@@ -34,6 +38,7 @@ appServices.service('quiz', ['$window',
     }
 
     return {
+      getQuestions: getQuestions,
       createMirrors: function (wetCode, dryCode) {
         createMirrors(wetCode, dryCode);
       },
