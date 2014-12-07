@@ -11,7 +11,7 @@
   {
     "questionId": 2,
     "wetCode": "var bits = [1, 4, 8, 12, 16, 18,\n\t\t\t\t\t\t24, 26, 31, 32, 36, 48,\n\t\t\t\t\t\t60, 64, 128, 256, 512];\n\nbits[0] += 1;\nbits[1] += 1;\nbits[2] += 1;\nbits[3] += 1;\nbits[4] += 1;\nbits[5] += 1;\nbits[6] += 1;\nbits[7] += 1;\nbits[8] += 1;\nbits[9] += 1;\n",
-    "dryCode": "var bits = [1, 4, 8, 12, 16, 18,\n\t\t\t\t\t\t24, 26, 31, 32, 36, 48,\n\t\t\t\t\t\t60, 64, 128, 256, 512];\n\n for (var n = 0; n < 10; n++) {\n\tbits[n] += 1;\n}\n",
+    "dryCode": "var bits = [1, 4, 8, 12, 16, 18,\n\t\t\t\t\t\t24, 26, 31, 32, 36, 48,\n\t\t\t\t\t\t60, 64, 128, 256, 512];\n\n for (var n = 0; n < 10; n += 1) {\n\tbits[n] += 1;\n}\n",
     "selection": ["Define an object literal", "Use AJAX", "Use a for loop", "Create a helper function"],
     "answer": 2,
     "questionText": "In the above code we have an array of bits. We want to add 1 more bit the first 10 bits in our array. We've done so with some very WET code - how could we fix this up?",

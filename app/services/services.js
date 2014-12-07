@@ -3,7 +3,7 @@
 
 var appServices = angular.module('appServices', []);
 
-appServices.service('quiz', ['$window', '$http',
+appServices.factory('quiz', ['$window', '$http',
   function ($window, $http) {
     "use strict";
     var score, questionsAnswered;
