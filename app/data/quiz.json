@@ -33,7 +33,7 @@
     "selection": ["Create an object literal", "Use an array", "Use a switch statement", "Create a helper function"],
     "answer": 2,
     "questionText": "Here we are getting a keycode, presumably from a key event handler, and figuring out which of our functions to call. When the key is LEFT or UP we call doSomething(), when the key is RIGHT or DOWN we call doSomethingElse(), and when it's none of those we call doSomethingDifferent(). There are a lot of operators in there - how could we DRY this code up?",
-    "answerText": "In this small case our DRY code is longer, but much more maintainable. Remember that DRY doesn't necessarily imply shorter code, as readability and maintainability are high on the priority list. Another important thing to note here are the break statements inside the switch - if your forget those your switch will fall through until it reaches a break statement, executing all the code along the way!",
+    "answerText": "In this small case our DRY code is longer, but much more maintainable. It is important to remember that DRY doesn't necessarily imply shorter code, as readability and maintainability are high on the priority list. Another important thing to note here are the break statements inside the switch - if your forget those your switch will fall through until it reaches a break statement, executing all the code along the way!",
     "notes": "Note: So this is somewhat of a trick question. On a larger scale it would actually be more performant, and more readable, to use an object literal like a hashtable and look up the key-value directly, but on such a small scale it's more feasible to use the switch statement."
   },
   {

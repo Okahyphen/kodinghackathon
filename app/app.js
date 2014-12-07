@@ -1,7 +1,10 @@
 /* App */
 /*global angular */
 
-var DRYvsWET = angular.module('DRYvsWET', ['ngRoute', 'appControllers']);
+var DRYvsWET = angular.module('DRYvsWET', [
+  'ngRoute',
+  'appControllers'
+]);
 
 DRYvsWET.config(['$routeProvider',
   function ($routeProvider) {

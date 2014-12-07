@@ -215,6 +215,7 @@ hr {
     padding: 10px;
     width: 65%;
     background-color: #fff;
+    font-size: 0.9em;
     @include Transition(0.10s);
     cursor: pointer;
     &:hover {
@@ -259,6 +260,7 @@ hr {
   top: 3px;
   right: 0;
   left: 0;
+  opacity: 0;
   font: {
     size: 1.5em;
   }
@@ -342,9 +344,6 @@ hr {
 .tweet-it {
   float: right;
 }
-
-
-
 /* Media Breakpoints */
 
 @media screen and (max-width: 720px) {
@@ -352,10 +351,6 @@ hr {
   .dry-container {
     width: 100%;
     height: 360px;
-  }
-
-  .questionaire li {
-    font-size: 0.8em;
   }
   .notify-incorrect {
     font-size: 1em;
