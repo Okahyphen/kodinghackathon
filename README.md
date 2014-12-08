@@ -9,6 +9,8 @@ So `DRY` is a pretty universal concept in coding, and one that is especially imp
 
 I wanted to address the idea of teaching someone with basic knowledge of programming constructs the importance of `DRY` vs `WET` code, through an interactive means. This quiz only touches on basic ideas and examples of `DRY` code - not some of the more expansive topics like modular design.
 
+With a little more time it would be fun to make `DRY` vs `DAMP` vs `WET` with even more examples. Also I think a `CSS` specific set of examples would benifit a lot of folk.
+
 ### Screenshots
 
 Koding
@@ -22,3 +24,11 @@ Local Dev
 Didn't end up using any major data APIs for this one - only found out I got into the Hackathon a few days prior, so there wasn't a lot of time to research APIs.
 
 The project is built around Angular, and uses CodeMirror editors.
+
+
+###### Tech used:
+
+- HTML/CSS/JS
+- Angular
+- JSON
+- Sass

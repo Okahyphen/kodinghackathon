@@ -119,15 +119,15 @@ appControllers.controller('EndCtrl', ['$scope', 'quiz',
 
     if ($scope.score === 15) {
       $scope.grats = 'Perfect!';
-    } else if ($scope.score > 10) {
+    } else if ($scope.score >= 10) {
       $scope.grats = 'Well Done!';
-    } else if ($scope.score > 5) {
+    } else if ($scope.score >= 5) {
       $scope.grats = 'Keep Trying!';
     } else {
       $scope.grats = 'Better Luck Next Time!';
     }
 
-    if ($scope.score > 10) {
+    if ($scope.score >= 10) {
       $scope.again = '#/dry';
     } else {
       $scope.again = '#/wet';
