@@ -42,7 +42,7 @@
     "dryCode": "var ferinheightToCelsius = function (temp) {\n\treturn Math.round((temp - 32) / 1.800);\n}\n\nvar convertObjToCelsius = function (obj) {\n\tfor (var key in obj) {\n\t\tferinheightToCelsius(obj[key]);\n\t}\n}\n\nvar temps = {\n\t'morning': 56,\n\t'noon': 68,\n\t'evening': 52\n};\n\nvar temps2 = {\n\t'morning': 46,\n\t'noon': 55,\n\t'evening': 48\n};\n\nconvertObjToCelsius(temps);\nconvertObjToCelsius(temps2);\n",
     "selection": ["Create helper functions", "Use a constructor", "Create a new array", "Define a new variable"],
     "answer": 0,
-    "questionText": "In this example of WET code we have been given two object literals with temperatures inside. We want to convert all the temperatures from Ferinheight to Celsius, inside both. How could we do this in a more DRY manner?",
+    "questionText": "In this example of WET code we have been given two object literals with temperatures inside. We want to convert all the temperatures from Ferinheight to Celsius, inside both. We've done it, but we've had to type out our equation twice - and would have to type it out again if there were another set of temperatures later on. How could we do this in a more DRY manner?",
     "answerText": "Now we have two highly reusable helper functions that we can continue to use throughout our program. If we need to make changes to either of these calculations we know exactly where to find them, and we only have to change them once.",
     "notes": "Note: This is a very basic example to give an idea of how functions can help other functions. There exist problems with the exact code shown."
   }
